@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['license_plate']
+
+roboflow:
+  workspace: jayati
+  project: car-license-plate-detection-4re3j
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/jayati/car-license-plate-detection-4re3j/dataset/2
