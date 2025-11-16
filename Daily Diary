@@ -1,0 +1,30 @@
+Day 1: Project Setup and Introduction to ALPR: Initialize GitHub repository. Create project structure. Research Automatic License Plate Recognition (ALPR) basics, its applications, and common challenges. Document initial thoughts and learning goals.
+Day 2: Deep Dive into YOLOv8: Begin learning about YOLOv8 architecture, its advantages (speed, accuracy), and how it's used for object detection. Explore Ultralytics documentation and examples.
+Day 3: Understanding EasyOCR: Familiarize myself with Optical Character Recognition (OCR) principles. Learn how EasyOCR works, its language support, and basic usage for text extraction from images.
+Day 4: Exploring Google Generative AI (Gemini): Understand the capabilities of Google Gemini, focusing on its text generation and contextual understanding for correction tasks. Set up Google API key for Gemini access.
+Day 5: Environment Setup and Dependencies: Set up the development environment in Google Colab. Install all necessary libraries: ultralytics, opencv-python-headless, easyocr, google-generativeai. Mount Google Drive.
+Day 6: Data Collection Strategy: Plan for collecting or sourcing a dataset of Indian license plates. Define criteria for image diversity (lighting, angles, plate types).
+Day 7: Initial Data Annotation: Begin annotating a small subset of images with bounding boxes for license plates. Understand YOLO format for annotations (.txt files).
+Day 8: Dataset Preparation for YOLOv8: Organize the annotated dataset into training, validation, and test sets. Create data.yaml configuration file for YOLOv8 training.
+Day 9: YOLOv8 Model Selection and Configuration: Choose a suitable YOLOv8 model (e.g., yolov8n.pt). Configure training parameters like epochs, image size, and batch size for initial training runs.
+Day 10: First YOLOv8 Training Run: Execute the first YOLOv8 training command. Monitor initial training metrics (loss, mAP). Document observations and potential areas for improvement.
+Day 11: Refining YOLOv8 Training: Analyze training results. Adjust hyperparameters or augmentations if needed. Aim to achieve satisfactory performance for license plate detection.
+Day 12: Implementing Basic OCR Integration: Write a script to load the trained YOLOv8 model, detect license plates, crop them, and then use EasyOCR to extract text from the cropped regions.
+Day 13: Image Preprocessing for OCR: Develop preprocess_plate_image function. Experiment with OpenCV techniques like grayscale conversion, blurring, thresholding, and morphological operations to enhance plate images for better OCR.
+Day 14: Initial Rule-Based Correction: Implement rule_based_correction to fix common OCR errors (e.g., 'O' vs '0', 'I' vs '1') and remove common prefixes like 'IND'.
+Day 15: Integrating Gemini for Initial Correction: Develop get_corrected_plate function using Gemini API. Craft prompts to guide Gemini in correcting OCR output to specific Indian license plate formats. Add retry mechanisms.
+Day 16: Basic End-to-End Test and Debugging: Run the complete pipeline (detection, OCR, AI correction) on a few test images. Identify bottlenecks and common failure points. Debug issues.
+Day 17: Multi-View Image Enhancement for OCR: Develop get_enhanced_plate_views to generate multiple preprocessed versions of a cropped plate (e.g., CLAHE, sharpened, binary) to improve OCR robustness.
+Day 18: Multi-Pass OCR Strategy: Implement run_multi_ocr to apply EasyOCR across all enhanced views, collecting a diverse set of OCR candidates.
+Day 19: Advanced AI Synthesis with Gemini: Develop get_ai_synthesized_plate function. Craft detailed prompts for Gemini to act as an 'expert analyst' to synthesize the most probable plate number from multiple OCR candidates, considering Indian plate formats and common errors.
+Day 20: Character Consensus Mechanism: Implement get_consensus_plate for a rule-based character-by-character voting mechanism to provide an alternative or validation for Gemini's output.
+Day 21: Implementing Comprehensive Evaluation Suite: Integrate QuickEvaluator, GroundTruthManager, and AdvancedEvaluationMetrics. Prepare for rigorous testing of the full ALPR system.
+Day 22: Running and Analyzing Main Evaluation: Execute the evaluate_your_model function. Analyze detection and OCR performance metrics, processing times, and confidence distributions. Generate dashboards and reports.
+Day 23: Robustness Testing and Stress Conditions: Implement and run batch_test_different_conditions and stress_testing functions using ModelValidationSuite. Test performance under noise, blur, varying brightness, etc. Document findings.
+Day 24: Planning for Frontend with Streamlit & FastAPI: Research Streamlit for interactive dashboards and FastAPI for building robust APIs. Plan the architecture for connecting the ALPR backend with a user-friendly frontend.
+Day 25: Setting Up FastAPI Backend: Create a new Python file for the FastAPI application. Define a basic structure, including imports and initial app setup. Configure endpoints for testing.
+Day 26: Implementing FastAPI Endpoint for ALPR: Develop a POST endpoint in FastAPI that receives an image file, calls the ALPR processing functions (YOLO, EasyOCR, Gemini synthesis), and returns the detected plate number and bounding box coordinates.
+Day 27: Creating Basic Streamlit Interface: Set up a new Streamlit application file. Design the basic UI: title, file uploader widget, and a button to trigger processing.
+Day 28: Connecting Streamlit to FastAPI: Write Streamlit code to send the uploaded image to the FastAPI endpoint using requests. Handle responses, including potential errors and successful data.
+Day 29: Displaying Results in Streamlit: Implement logic to display the returned license plate text. Use OpenCV to draw bounding boxes on the uploaded image and display it in Streamlit. Add user feedback messages.
+Day 30: Final Review and Documentation: Review the entire project, ensuring code quality and comprehensive documentation. Update the GitHub repository with the completed frontend and a README.md file explaining the project, setup, and usage.
